@@ -1,70 +1,75 @@
 import React from 'react';
 import "/app/globals.css"
+import Image from 'next/image';
+import {FiFilm,FiShoppingCart,FiSettings} from 'react-icons/fi';
+import {TbPlayVolleyball} from 'react-icons/tb';
+import {BsFillChatDotsFill,BsFillCarFrontFill} from 'react-icons/bs'
+
 
 
 const Component1DB = [{
     id: 1,
     tileName: 'Movies',
-    tileColor: 'bg-white'
+    tileIcon:  <FiFilm size={32} color="white" />
 },
 {
     id: 2,
     tileName: 'Kids',
-    tileColor: 'bg-green-200'
+    tileIcon: <TbPlayVolleyball size={32} color="white"/>
 },
 {
     id: 3,
     tileName: 'Shop',
-    tileColor: 'bg-blue-200'
+    tileIcon: <FiShoppingCart size={32} color="white"/>
 },
 {
     id: 4,
-    tileName: 'Connect',
-    tileColor: 'bg-yellow-200'
+    tileName: 'Chat',
+    tileIcon: <BsFillChatDotsFill size={32} color="white"/>
 },
 {
     id: 5,
     tileName: 'Book Uber',
-    tileColor: 'bg-pink-200'
+    tileIcon: <BsFillCarFrontFill size={32} color="white"/>
 },
 {
     id: 6,
-    tileName: 'other',
-    tileColor: 'bg-green-200'
+    tileName: 'Settings',
+    tileIcon: <FiSettings size={32} color="white"/>
 },
 ]
 
-const Component2 = ({langCode,products,componentNumber}) => {
+const Component1 = ({langCode,products,componentNumber}) => {
   return (
    <>
  
-  <div
-    className="bg-cover grid grid-cols-3 gap-4 p-20 bg-black"
-   // style={{ backgroundImage: 'url(https://tvk.dev/wp-content/uploads/2023/10/green.webp)' }}
-  >
-     {Component1DB?.map((item, index) => {
-        return (
-            <div className="w-72 h-72 bg-white bg-opacity-20 backdrop-blur-lg rounded drop-shadow-lg flex justify-center items-center" key={item?.id}>
-                 <h1 className='z-10 text-xl font-bold text-white'>{item?.tileName}</h1>
-            </div>
+ <div className="relative w-full h-full bg-black overflow-hidden flex ">
+ 
+  <Image
+    src="/assets/sydney_hd.jpg"
+    alt="Sydney"
+    layout="fill"
+    objectFit="cover"
+    quality={100}
+  />
+ <h3 className='text-white opacity-70 font-semibold text-2xl p-2'>My Spotlight</h3>
+  <div className="absolute inset-0 bg-opacity-10 bg-white flex flex-row gap-4 flex-wrap justify-center items-center m-12 ">
+    {Component1DB?.map((item, index) => {
+      return (
+        <div
+          className="w-64 h-48 ] bg-white bg-opacity-20 backdrop-blur-lg drop-shadow-lg flex flex-col justify-center items-center cursor-pointer"
+          key={item?.id}
+        >
+         {item?.tileIcon}
+          <h1 className="z-10 text-xl font-thin text-white">{item?.tileName}</h1>
+        </div>
+      );
+    })}
+  </div> 
+</div>
 
-        )})}
-   
-  </div>
-
-
-   {/* <div className="m-16 h-full w-[800px] bg-red-800 rounded-[4rem] flex flex-row justify-center items-center flex-wrap gap-4 border border-gray-100">
-    <div className="m-16 h-full w-[800px] bg-red-100 bg-clip-padding backdrop-filter rounded-[4rem] flex flex-row justify-center items-center flex-wrap gap-4 backdrop-blur-sm bg-opacity-40 border border-gray-100">
-          {Component1DB?.map((item, index) => {
-              return (
-                  <div className={`w-48 h-32 z-50 flex justify-center items-center bg-blur elevation-3 ${item?.tileColor} rounded-[2.5rem] bg-clip-padding backdrop-blur-sm bg-opacity-40 backdrop-filter`} key={item?.id}>
-                      <h1 className='z-10 text-xl font-bold'>{item?.tileName}</h1>
-                  </div>
-              );
-          })}
-      </div> */}
       </>
   );
 };
 
-export default Component2;
+export default Component1;

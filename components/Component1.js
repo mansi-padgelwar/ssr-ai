@@ -1,37 +1,41 @@
 import React from 'react';
 import "/app/globals.css"
 import Image from 'next/image';
+import {FiFilm,FiShoppingCart,FiSettings} from 'react-icons/fi';
+import {TbPlayVolleyball} from 'react-icons/tb';
+import {BsFillChatDotsFill,BsFillCarFrontFill} from 'react-icons/bs'
+
 
 
 const Component1DB = [{
     id: 1,
     tileName: 'Movies',
-    tileColor: 'bg-white'
+    tileIcon:  <FiFilm size={32} color="white" />
 },
 {
     id: 2,
     tileName: 'Kids',
-    tileColor: 'bg-green-200'
+    tileIcon: <TbPlayVolleyball size={32} color="white"/>
 },
 {
     id: 3,
     tileName: 'Shop',
-    tileColor: 'bg-blue-200'
+    tileIcon: <FiShoppingCart size={32} color="white"/>
 },
 {
     id: 4,
-    tileName: 'Connect',
-    tileColor: 'bg-yellow-200'
+    tileName: 'Chat',
+    tileIcon: <BsFillChatDotsFill size={32} color="white"/>
 },
 {
     id: 5,
     tileName: 'Book Uber',
-    tileColor: 'bg-pink-200'
+    tileIcon: <BsFillCarFrontFill size={32} color="white"/>
 },
 {
     id: 6,
-    tileName: 'other',
-    tileColor: 'bg-green-200'
+    tileName: 'Settings',
+    tileIcon: <FiSettings size={32} color="white"/>
 },
 ]
 
@@ -39,7 +43,7 @@ const Component1 = ({langCode,products,componentNumber}) => {
   return (
    <>
  
- <div className="relative w-[1000px] h-[500px] bg-black rounded-[4rem] overflow-hidden">
+ <div className="relative w-full h-full bg-black rounded-[4rem] overflow-hidden flex justify-center items-center">
   <Image
     src="/assets/sydney_hd.jpg"
     alt="Sydney"
@@ -47,16 +51,21 @@ const Component1 = ({langCode,products,componentNumber}) => {
     objectFit="cover"
     quality={100}
   />
-  <div className="absolute inset-0 bg-opacity-50 bg-white backdrop-blur-lg"></div>
-     {Component1DB?.map((item, index) => {
-        return (
-            <div className="w-48 h-32 rounded-[2.5rem] bg-white bg-opacity-20 backdrop-blur-lg rounded drop-shadow-lg flex justify-center items-center cursor-pointer" key={item?.id}>
-                 <h1 className='z-10 text-xl font-bold text-white'>{item?.tileName}</h1>
-            </div>
-
-        )})}
-   
+  <div className="absolute inset-0 bg-opacity-10 bg-white backdrop-blur-sm flex flex-row gap-4 flex-wrap justify-center items-center m-12 rounded-[3rem]">
+    {Component1DB?.map((item, index) => {
+      return (
+        <div
+          className="w-64 h-48 rounded-[2.5rem] bg-white bg-opacity-20 backdrop-blur-lg drop-shadow-lg flex flex-col justify-center items-center cursor-pointer"
+          key={item?.id}
+        >
+         {item?.tileIcon}
+          <h1 className="z-10 text-xl font-thin text-white">{item?.tileName}</h1>
+        </div>
+      );
+    })}
   </div>
+</div>
+
 
 
    {/* <div className="m-16 h-full w-[800px] bg-red-800 rounded-[4rem] flex flex-row justify-center items-center flex-wrap gap-4 border border-gray-100">
