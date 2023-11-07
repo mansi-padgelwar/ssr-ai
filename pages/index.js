@@ -1,28 +1,9 @@
-// pages/index.js
-
-import Link from "next/link";
 import "/app/globals.css";
 
-export default function Home({ products }) {
+export default function Home() {
   return (
     <div>
-      <h1 className="text-xl text-blue">Product  Listing</h1>
-      <ul>
-        {products.map((product) => (
-          <li key={product.id}>
-            <Link href={`/products/${product.id}`}>{product.name}</Link>
-          </li>
-        ))}
-      </ul>
+      <h1 className="text-4xl text-blue text-center m-32">Hello World</h1>
     </div>
   );
-}
-
-export async function getServerSideProps() {
-  const res = await fetch("http://localhost:3001/api/products");
-  const products = await res.json();
-
-  return {
-    props: { products },
-  };
 }
