@@ -16,7 +16,7 @@ const Component2 = ({ menu }) => {
   };
   return (
     <>
-      <div className="relative w-full h-full bg-black overflow-hidden flex justify-center items-center">
+      <div className="relative w-full h-full bg-black overflow-hidden flex justify-center items-center rounded-sm">
         <Image
           src="/assets/santorini.jpg"
           alt="Sydney"
@@ -24,11 +24,11 @@ const Component2 = ({ menu }) => {
           objectFit="cover"
           quality={100}
         />
-        <div className="absolute inset-0 bg-opacity-10 bg-white backdrop-blur-sm flex flex-row gap-4 flex-wrap justify-center items-center m-12">
+        <div className="rounded-sm absolute inset-0 bg-opacity-10 bg-white backdrop-blur-sm flex flex-row gap-4 flex-wrap justify-center items-center m-12">
           {menu.map((item) => (
             <div
               key={item.id}
-              className="w-64 h-48 bg-white bg-opacity-20 backdrop-blur-lg drop-shadow-lg flex flex-col justify-center items-center cursor-pointer"
+              className="rounded-sm w-64 h-48 bg-white bg-opacity-20 backdrop-blur-lg drop-shadow-lg flex flex-col justify-center items-center cursor-pointer"
             >
               {React.createElement(
                 iconComponents[item.tileIcon.type],
