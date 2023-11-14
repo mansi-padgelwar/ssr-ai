@@ -2,8 +2,8 @@ import React from "react";
 import "/app/globals.css";
 import Image from "next/image";
 import { FiFilm, FiShoppingCart, FiSettings } from "react-icons/fi";
-import { TbPlayVolleyball } from "react-icons/Tb";
-import { BsFillChatDotsFill, BsFillCarFrontFill } from "react-icons/Bs";
+import { TbPlayVolleyball } from "react-icons/tb";
+import { BsFillChatDotsFill, BsFillCarFrontFill } from "react-icons/bs";
 
 const Component1 = ({ menu }) => {
   const iconComponents = {

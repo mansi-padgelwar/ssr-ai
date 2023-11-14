@@ -4,6 +4,13 @@ import InFlightScript from "../components/InFlightScript";
 import Link from "next/link";
 
 export default function Home() {
+  const linkStyle = {
+    textDecoration: "none",
+    color: "#007bff",
+    fontWeight: "bold",
+    marginRight: "10px",
+  };
+
   return (
     <div>
       {/* <Script src="http://api.inflightpanasonic.aero/inflight.js" />
@@ -18,17 +25,11 @@ export default function Home() {
           gap: 4,
         }}
       >
-        <Link
-          href="https://demo-ssr-app-eta.vercel.app/en-us/halloween/app"
-          legacyBehavior
-        >
-          <a>1. Halloween Page</a>
+        <Link href={`/en-us/component1/app`} legacyBehavior>
+          <a style={linkStyle}>1. Component 1</a>
         </Link>
-        <Link
-          href="https://demo-ssr-app-eta.vercel.app/en-us/diwali/app"
-          legacyBehavior
-        >
-          <a>2. Diwali Page</a>
+        <Link href={`/en-us/component2/app`} legacyBehavior>
+          <a style={linkStyle}>2. Component 2</a>
         </Link>
       </div>
     </div>
